@@ -86,6 +86,13 @@ agent { label 'master' }
                 }
         
                         
+        post {
+    success {
+      echo 'sucess'
+    }
+  }
+        
+        
         
          post { 
         always { 
