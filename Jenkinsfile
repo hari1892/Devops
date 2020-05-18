@@ -85,25 +85,14 @@ agent { label 'master' }
                     }
                 }
         
-                        
-        post {
-    success {
-      echo 'sucess'
-    }
-  }
-        
-        
-        
-         post { 
-        always { 
-            echo 'I will always say Hello again!'
-            
-sh 'curl "https://api.GitHub.com/repos/hari1892/Devops/statuses/$GIT_COMMIT?access_token=ffe7700cdbeb09629de698f265a8f7d0c958c8a4" \
+                sh 'curl "https://api.GitHub.com/repos/hari1892/Devops/statuses/$GIT_COMMIT?access_token=ffe7700cdbeb09629de698f265a8f7d0c958c8a4" \
   -H "Content-Type: application/json" \
   -X POST \
   -d "{\"state\": \"success\",\"context\": \"continuous-integration/jenkins-public-ci\", \"description\": \"Jenkins\", \"target_url\": \"https://d5425984.ngrok.io/job/pipeline-sonar/$BUILD_NUMBER/console\"}"'
-        }
-    }
+        
+        
+        
+       
                         
                     
         }
