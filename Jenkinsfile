@@ -1,3 +1,11 @@
+
+final STACKNAME = 'test-count'
+final count = '1'
+final ACCOUNT = '123'
+final region = 'us-east-1'
+final IMAGETAG = env.TAG
+
+
 pipeline {
     options {
     ansiColor('xterm')
@@ -25,6 +33,15 @@ agent { label 'master' }
                      
         stage('build') {
             steps {
+                sh """
+                echo ${STACKNAME}
+                echo ${ACCOUNT}
+                echo ${IMAGETAG}
+                echo ${region}
+                exit 1
+                """
+                
+                
                 sh 'echo -e "Default e[106mLight cyan"'
                 sh 'echo "checking maven version"'
                 sh 'mvn --version'
